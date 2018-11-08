@@ -1,0 +1,106 @@
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="top-nav-wrap">
+          <ul>
+            <li><a href="/auth.html">Авторизация</a></li>
+            <li><a href="/registration.html">Регистрация</a></li>
+            <li><a href="/orders.html">Мои заказы</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="header-wrap">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="logo">
+            <img [src]="_logo" alt="logo">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="search">
+            <input class="search__input"
+              placeholder="Более 1000 товаров"
+              type="text"
+              (input)="search($event)"
+            >
+            <button class="search__button"><i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-lg-3 d-flex justify-content-end">
+          <div class="cartCell">
+            <div class="cartCell__link">корзина <span>(0)</span></div>
+            <div class="dropCel">
+              <ul class="cart">
+                <li class="item">
+                  <div class="item__img">
+                    <img src="/img/img1.jpg" alt="pic">
+                  </div>
+                  <ul class="item__date">
+                    <li class="name">обои 1</li>
+                    <li class="count">
+                      <span class="count__decrease">-</span>
+                      <span class="count__sum">5</span>
+                      <span class="count__increase">+</span>
+                    </li>
+                    <li class="prices">Цена 1500 грн</li>
+                  </ul>
+                  <div class="item__delete"><i class="fas fa-times"></i></div>
+                </li>
+                <li class="item">
+                  <div class="item__img">
+                    <img src="/img/img1.jpg" alt="pic">
+                  </div>
+                  <ul class="item__date">
+                    <li class="name">обои 1</li>
+                    <li class="count">
+                      <span class="count__decrease">-</span>
+                      <span class="count__sum">5</span>
+                      <span class="count__increase">+</span>
+                    </li>
+                    <li class="prices">Цена 1500 грн</li>
+                  </ul>
+                  <div class="item__delete"><i class="fas fa-times"></i></div>
+                </li>
+                <li class="item">
+                  <div class="item__img">
+                    <img src="/img/img1.jpg" alt="pic">
+                  </div>
+                  <ul class="item__date">
+                    <li class="name">обои 1</li>
+                    <li class="count">
+                      <span class="count__decrease">-</span>
+                      <span class="count__sum">5</span>
+                      <span class="count__increase">+</span>
+                    </li>
+                    <li class="prices">Цена 1500 грн</li>
+                  </ul>
+                  <div class="item__delete"><i class="fas fa-times"></i></div>
+                </li>
+                <li class="item">
+                  <div class="item__img">
+                    <img src="/img/img1.jpg" alt="pic">
+                  </div>
+                  <ul class="item__date">
+                    <li class="name">обои 1</li>
+                    <li class="count">
+                      <span class="count__decrease">-</span>
+                      <span class="count__sum">5</span>
+                      <span class="count__increase">+</span>
+                    </li>
+                    <li class="prices">Цена 1500 грн</li>
+                  </ul>
+                  <div class="item__delete"><i class="fas fa-times"></i></div>
+                </li>
+              </ul>
+              <div class="totalCel">Итого: 3450 грн</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
