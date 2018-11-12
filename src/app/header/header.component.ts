@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'course-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
     public _logo: string;
 
@@ -18,13 +18,8 @@ export class HeaderComponent implements OnInit {
     @Output()
     public searchEvent$ = new EventEmitter();
 
-
-    constructor() { }
-
-    ngOnInit() {
-    }
-
-    public search({ target: { value: text } }: KeyboardEvent): void {
+    public search({ target }: KeyboardEvent): void {
+        const { value: text } = target as HTMLInputElement;
         this.searchEvent$.emit(text);
     }
 

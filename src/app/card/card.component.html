@@ -1,0 +1,20 @@
+<div class="col-lg-4">
+  <div class="catalogItem">
+    <div class="catalogItem__img">
+      <img [src]="product.src" alt="Обои"
+      (mouseenter)="t.show()"
+      (mouseleave)="t.hide()"
+      >
+    </div>
+    <div class="catalogItem__name">{{product.title}}</div>
+    <div class="catalogItem__code">Артикул: {{product.serial}}</div>
+    <div class="catalogItem__brand">Бренд: <strong>{{product.author}}</strong></div>
+    <div class="catalogItem__prices"
+      [courseTooltip]="dollarPrice(product.price) | number:'1.1-3'"
+      #t="tool"
+    >Цена: <strong>{{product.price}}</strong>
+      <!--<span class="tooltiptext open">Эквив. ~ 150$</span>-->
+    </div>
+    <button class="catalogItem__btn">Заказать</button>
+  </div>
+</div>

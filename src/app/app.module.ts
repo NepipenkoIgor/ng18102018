@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { CardComponent } from './card/card.component';
+import { ProductsFilterPipe } from './products-filter.pipe';
+import { TooltipDirective } from './common/directives/tooltip.directive';
 
 // declarations => let / const
 // imports => import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +13,10 @@ import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardComponent,
+    ProductsFilterPipe,
+    TooltipDirective
   ],
   imports: [
     BrowserModule
