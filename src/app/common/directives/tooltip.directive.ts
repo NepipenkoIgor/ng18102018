@@ -5,8 +5,6 @@ import { Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Render
     exportAs: 'tooltip,tool'
 })
 export class TooltipDirective implements OnInit {
-
-
     @HostBinding('class.tooltip-container')
     public tooltipContainer = true;
 
