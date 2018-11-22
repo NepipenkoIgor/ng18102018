@@ -4,9 +4,8 @@
       <div class="col-lg-12">
         <div class="top-nav-wrap">
           <ul>
-            <li><a href="/auth.html">Авторизация</a></li>
-            <li><a href="/registration.html">Регистрация</a></li>
-            <li><a href="/orders.html">Мои заказы</a></li>
+            <li [routerLink]="['products']">Продукты</li>
+            <li (click)="goToSignUp()">Регистрация</li>
           </ul>
         </div>
       </div>

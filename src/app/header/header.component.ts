@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'course-header',
@@ -8,6 +9,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class HeaderComponent {
 
     public _logo: string;
+
+    public constructor(
+        private _router: Router
+    ) {}
 
     @Input()
     public set logo(value: string) {
@@ -21,6 +26,10 @@ export class HeaderComponent {
     public search({ target }: KeyboardEvent): void {
         const { value: text } = target as HTMLInputElement;
         this.searchEvent$.emit(text);
+    }
+
+    public goToSignUp(): void {
+this._router.navigate(['signup']);
     }
 
 }
