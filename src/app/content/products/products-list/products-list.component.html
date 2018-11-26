@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row">
+    <ng-container *ngIf="(products$ | async) as products; else loadinBlock">
+      <course-card *ngFor="let product of products | productsFilter:text; index as i" [product]="product">
+
+      </course-card>
+    </ng-container>
+
+  </div>
+</div>

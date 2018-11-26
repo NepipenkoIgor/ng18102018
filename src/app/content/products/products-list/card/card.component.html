@@ -1,6 +1,6 @@
 <div class="col-lg-4">
   <div class="catalogItem">
-    <div class="catalogItem__img">
+    <div class="catalogItem__img" [routerLink]="['/products', product._id]">
       <img [src]="product.src" alt="Обои"
       (mouseenter)="t.show()"
       (mouseleave)="t.hide()"

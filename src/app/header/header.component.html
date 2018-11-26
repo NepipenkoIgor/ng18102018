@@ -4,8 +4,14 @@
       <div class="col-lg-12">
         <div class="top-nav-wrap">
           <ul>
-            <li [routerLink]="['products']">Продукты</li>
-            <li (click)="goToSignUp()">Регистрация</li>
+            <li
+              [routerLink]="[{outlet: {primary: 'home', aux1: '/chat'}}]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Чат
+            </li>
+            <li [routerLink]="['products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+true}">Продукты
+            </li>
+            <li [routerLink]="['signup']" routerLinkActive="active">Регистрация</li>
           </ul>
         </div>
       </div>

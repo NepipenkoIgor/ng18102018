@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'course-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css']
+    styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
 
@@ -29,7 +29,7 @@ export class HeaderComponent {
     }
 
     public goToSignUp(): void {
-this._router.navigate(['signup']);
+        this._router.navigate(['signup']);
     }
 
 }

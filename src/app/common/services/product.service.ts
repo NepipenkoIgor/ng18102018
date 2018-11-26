@@ -1,8 +1,7 @@
 import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
-import { BASE_URL_TOKEN } from '../../config';
+import { Inject } from '@angular/core';
 
 export interface IProduct {
     '_id': string;
@@ -24,6 +23,10 @@ export class ProductService {
             .pipe(
                 catchError((_err) => of([]))
             );
+    }
+
+    public getProduct(id: string): Observable<IProduct> {
+        return this._http.get<IProduct>(`/products/${id}`);
     }
 
 }
