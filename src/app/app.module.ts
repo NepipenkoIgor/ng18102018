@@ -6,7 +6,6 @@ import { HeaderComponent } from './header/header.component';
 import { CardComponent } from './content/products/products-list/card/card.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 import { TooltipDirective } from './common/directives/tooltip.directive';
-import { ProductService } from './common/services/product.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BASE_URL, BASE_URL_TOKEN } from './config';
 import { ViewportService } from './common/services/viewport.service';
@@ -19,6 +18,15 @@ import { ProductsListComponent } from './content/products/products-list/products
 import { OneProductResolveService } from './content/products/one-product/one-product-resolve.service';
 import { CustomPreloadServiceService } from './common/services/custom-preload-service.service';
 import { ChatComponent } from './common/components/chat/chat.component';
+import { StoreModule } from '@ngrx/store';
+import { environment } from '../environments/environment';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers } from './store';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductsEffects } from './store/effect/products.effect';
+import { ProductService } from './common/services/product.service';
+import { CartComponent } from './header/cart/cart.component';
+import { ProductComponent } from './header/cart/product/product.component';
 
 // declarations => let / const
 // imports => import { BrowserModule } from '@angular/platform-browser';
@@ -33,12 +41,19 @@ import { ChatComponent } from './common/components/chat/chat.component';
         ProductsComponent,
         OneProductComponent,
         ProductsListComponent,
-        ChatComponent
+        ChatComponent,
+        CartComponent,
+        ProductComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
-        RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadServiceService })
+        RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadServiceService }),
+        EffectsModule.forRoot([ProductsEffects]),
+        StoreModule.forRoot(reducers),
+        environment.production
+            ? []
+            : StoreDevtoolsModule.instrument()
     ],
     providers: [
         {

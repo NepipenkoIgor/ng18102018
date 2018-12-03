@@ -1,0 +1,14 @@
+<div class="cartCell">
+  <div class="cartCell__link">корзина <span>({{productsCount$ | async}})</span></div>
+  <div class="dropCel open">
+    <ul class="cart">
+      <course-product *ngFor="let product of products$ | async"
+       [product]="product"
+        (remove)="removeProduct($event)"
+        (increment)="incrementProduct($event)"
+        (decrement)="decrementProduct($event)"
+      ></course-product>
+    </ul>
+    <div class="totalCel">Итого: {{totalPrice$ | async | number: '1.0-0'}} грн</div>
+  </div>
+</div>

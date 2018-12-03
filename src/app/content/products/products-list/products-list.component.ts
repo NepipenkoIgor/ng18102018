@@ -1,11 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ProductService } from '../../../common/services/product.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Store } from '@ngrx/store';
+import { IStore } from '../../../store';
+import { GetProductsPending } from '../../../store/actions/products.action';
+import { productsWithBonuses } from '../../../store/reducers/cart.reducer';
 
 @Component({
-  selector: 'course-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.css']
+    selector: 'course-products-list',
+    templateUrl: './products-list.component.html',
+    styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
 
@@ -13,16 +16,17 @@ export class ProductsListComponent implements OnInit {
     public products$;
 
     public constructor(
-        private _productService: ProductService,
         private _domSanitazer: DomSanitizer,
-        @Inject('SizeService') private _sizeService: any
+        @Inject('SizeService') private _sizeService: any,
+        private _store: Store<IStore>
     ) {}
 
     public ngOnInit(): void {
         this._sizeService.run();
         // this.safeLog = this._domSanitazer.bypassSecurityTrustUrl(this.logo);
         // this.safeTooltip = this._domSanitazer.bypassSecurityTrustHtml(this.tooltip);
-        this.products$ = this._productService.getProducts();
+        this.products$ = this._store.select(productsWithBonuses);
+        this._store.dispatch(new GetProductsPending());
     }
 
     public searchByTerm(text: string): void {
