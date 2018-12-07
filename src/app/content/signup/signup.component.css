@@ -1,0 +1,7 @@
+input.ng-valid {
+  border: 1px solid green!important;
+}
+
+input.ng-pending {
+  border: 1px solid orange!important;
+}

@@ -2,21 +2,33 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="registration-wrapper">
+        <div class="registration-wrapper" [formGroup]="account">
           <h1>Регистрация</h1>
-          <form action="">
+          <form ngNoForm>
             <label class="input-wrapper no-valid">
               <span>Ваше имя</span>
-              <input type="text">
-              <div class="valid-message">Введите корректное имя</div>
+              <input type="text" formControlName="firstName"/>
+              <div *ngIf="account.get('firstName').invalid" class="valid-message">{{account.get('firstName').errors.nospecial}}</div>
             </label>
-            <label class="input-wrapper">
+            <label class="input-wrapper" [ngClass]="{'no-valid': account.get('lastName').invalid}">
               <span>Ваша фамилия</span>
-              <input type="text">
+              <input type="text"
+                [formControl]="account.get('lastName')">
             </label>
             <label class="input-wrapper">
-              <span>Ваш e-mail</span>
-              <input type="email">
+              <span>Мужчина</span>
+              <course-switcher  formControlName="male"></course-switcher>
+            </label>
+            <label class="input-wrapper">
+              <span>мне больше 18</span>
+              <course-switcher  formControlName="age"></course-switcher>
+            </label>
+            <label class="input-wrapper">
+              <span>Ваш e-mail</span> <span (click)="addEmail()">  +</span>
+              <div *ngFor="let emailControl of account.get('emails').controls; index as i">
+                <input type="email" [formControl]="emailControl"/>
+                <span (click)="removeEmail(i)"> x </span>
+              </div>
             </label>
             <label class="input-wrapper">
               <span>Пароль</span>
@@ -26,6 +38,7 @@
               <button>Зарегистрироваться</button>
             </div>
           </form>
+          <pre>{{account.value | json}}</pre>
         </div>
       </div>
     </div>

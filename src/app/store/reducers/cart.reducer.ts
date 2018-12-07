@@ -54,7 +54,6 @@ export function cartReducer(state = cartInitialState, action) {
 
 export const { selectAll, selectTotal } = adapter.getSelectors(createFeatureSelector('cart'));
 
-
 export const userSelector = (state: IStore) => state.user;
 export const productsSelector = (state: IStore) => state.products;
 
