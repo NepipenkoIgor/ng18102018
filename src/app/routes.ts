@@ -4,12 +4,17 @@ import { OneProductComponent } from './content/products/one-product/one-product.
 import { ProductsListComponent } from './content/products/products-list/products-list.component';
 import { OneProductResolveService } from './content/products/one-product/one-product-resolve.service';
 import { ChatComponent } from './common/components/chat/chat.component';
+import { CdComponent } from './content/cd/cd.component';
 
 export const routes: Route[] = [
     {
         path: '',
         redirectTo: 'products',
         pathMatch: 'full'
+    },
+    {
+        path: 'cd',
+        component: CdComponent,
     },
     {
         path: 'products',

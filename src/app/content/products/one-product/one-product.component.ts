@@ -23,6 +23,10 @@ export class OneProductComponent implements OnInit {
             console.log(project, title);
         });
 
+        this._activatedRoute.fragment.subscribe((fragment: string) => {
+            console.log(fragment);
+        });
+
         this._activatedRoute.data.subscribe(({ title, product }: { title: string, product: IProduct }) => {
             console.log(title);
             console.log(product);

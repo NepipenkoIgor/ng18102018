@@ -1,3 +1,10 @@
 .open {
   display: inline-block;
 }
+
+:host-context(.my-theme) .totalCel {
+  color: red;
+}
+:host-context(.my-blue-theme) .totalCel {
+  color: blue;
+}

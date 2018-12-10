@@ -5,10 +5,10 @@
         <div class="top-nav-wrap">
           <ul>
             <li
-              [routerLink]="[{outlet: {primary: 'home', aux1: '/chat'}}]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+              [routerLink]="[{outlets: {primary: 'home', aux1: 'chat'}}]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">Чат
             </li>
-            <li [routerLink]="['products']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+            <li [routerLink]="[{outlets: {primary: ['products'], aux1: null}}]" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
 true}">Продукты
             </li>
             <li [routerLink]="['signup']" routerLinkActive="active">Регистрация</li>
@@ -34,7 +34,7 @@ true}">Продукты
             </button>
           </div>
         </div>
-        <div class="col-lg-3 d-flex justify-content-end">
+        <div class="col-lg-3 d-flex justify-content-end my-blue-theme">
           <course-cart></course-cart>
         </div>
       </div>

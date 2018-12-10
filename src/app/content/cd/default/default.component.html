@@ -1,0 +1,12 @@
+<form>
+  <div>
+    <input type="text" name="firstName" [(ngModel)]="profile.firstName">
+  </div>
+  <div>
+    <input type="text" name="lastName" [(ngModel)]="profile.lastName">
+  </div>
+</form>
+
+<div>
+  {{profile.lastChanged() | date:'medium'}}
+</div>

@@ -27,6 +27,10 @@ import { ProductsEffects } from './store/effect/products.effect';
 import { ProductService } from './common/services/product.service';
 import { CartComponent } from './header/cart/cart.component';
 import { ProductComponent } from './header/cart/product/product.component';
+import { CdComponent } from './content/cd/cd.component';
+import { DefaultComponent } from './content/cd/default/default.component';
+import { OnPushComponent } from './content/cd/on-push/on-push.component';
+import { FormsModule } from '@angular/forms';
 
 // declarations => let / const
 // imports => import { BrowserModule } from '@angular/platform-browser';
@@ -43,11 +47,15 @@ import { ProductComponent } from './header/cart/product/product.component';
         ProductsListComponent,
         ChatComponent,
         CartComponent,
-        ProductComponent
+        ProductComponent,
+        CdComponent,
+        DefaultComponent,
+        OnPushComponent
     ],
     imports: [
         BrowserModule,
         HttpClientModule,
+        FormsModule,
         RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadServiceService }),
         EffectsModule.forRoot([ProductsEffects]),
         StoreModule.forRoot(reducers),
